@@ -1,0 +1,74 @@
+@import '@material/card/mdc-card';
+@import '@material/button/mdc-button';
+@import '@material/ripple/mdc-ripple';
+
+[class^=mdc-] {
+  transition-duration: 500ms;
+  transition-property: all;
+  transition-timing-function: cubic-bezier(1, 0, 0, 1);
+}
+
+.expression {
+  background: var(--mdc-theme-primary);
+  color: var(--mdc-theme-text-primary-on-background);
+  height: 40vh;
+  padding: 10px;
+}
+
+.mdc-button {
+  @include mdc-ripple-surface;
+  @include mdc-ripple-radius-bounded;
+  @include mdc-states(secondary);
+  @include mdc-states-focus-opacity(.2);
+  @include mdc-states-hover-opacity(.1);
+  @include mdc-states-press-opacity(.3);
+  height: 10vh;
+  font-family: monospace;
+  font-size: 3vh;
+  text-transform: none;
+  min-width: fit-content;
+}
+
+.operations {
+  color: var(--mdc-theme-text-primary-on-background);
+  display: flex;
+  height: 60vh;
+
+  .functions {
+    background: var(--mdc-theme-background-secondary);
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 10px;
+    width: stretch;
+
+    .mdc-button {
+      border: 1px solid var(--mdc-theme-secondary);
+      color: var(--mdc-theme-text-primary-on-background);
+    }
+  }
+
+  .numpad {
+    background: var(--mdc-theme-background);
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    padding: 10px;
+    width: 70vw;
+
+    .mdc-button {
+      border: 1px solid var(--mdc-theme-secondary);
+      color: var(--mdc-theme-text-primary-on-background);
+    }
+  }
+
+  @media (max-width: 965px) {
+    .functions {
+      display: none;
+    }
+
+    .numpad {
+      width: 100vw;
+    }
+  }
+}
