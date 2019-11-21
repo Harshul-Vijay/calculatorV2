@@ -12,7 +12,8 @@ onmessage = (e) => {
         // console.log(evaluate('4+9+9'));
         // console.log(MDCRipple)
         const tkn = new Tokenizer('4sin(a+5) = 9');
-        console.log(tkn.structure());
+        /*console.log(tkn.structure()); */
+        console.log(tkn.scanOperators());
     }
     context.postMessage('text');
     //self.postMessage('event');
